@@ -72,6 +72,6 @@ async def find_products(pages: list[int]):
 
 
                 product_df.loc[len(product_df)] = [brand_text, name_text, weight_text, price_text, image_file_name, page]
-    product_df.to_json(f"JSONS/products.json")
+    product_df.to_json(f"JSONS/products.json", orient="index", indent=4)
 
 asyncio.run(find_products(pages = [1,2]))
