@@ -1,0 +1,25 @@
+head {
+    color: red;
+ }
+ 
+body {
+   color: red;
+   font-family: sans-serif;
+   text-align: center;
+   margin: 0;
+   padding: 0;
+            }
+
+.button {
+   color: black;
+   padding: 15px;
+   border-radius: 10px;
+   border-width: 0px;
+   background-color: rgb(218, 218, 218);
+   transition-duration: 0.4s;
+   cursor: pointer;
+}
+
+.button:hover {
+   background-color: grey;
+}
