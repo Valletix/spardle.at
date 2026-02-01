@@ -67,7 +67,7 @@ async def find_products(pages: list[int]):
 
                 image_file_name = f"{normalize_strings(f"{brand_text}_{name_text}_{weight_text}")}.png"
                 
-                await img_clean.take_screenshot(f"img/{page}/{image_file_name}.png", quality=85)
+                await img_clean.take_screenshot(f"img/{page}/{image_file_name}", quality=85)
                 await img_tab.close()
 
 

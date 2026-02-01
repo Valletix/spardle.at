@@ -3,7 +3,7 @@ head {
  }
  
 body {
-   color: red;
+   color: black;
    font-family: sans-serif;
    text-align: center;
    margin: 0;
@@ -15,11 +15,12 @@ body {
    padding: 15px;
    border-radius: 10px;
    border-width: 0px;
-   background-color: rgb(218, 218, 218);
+   background-color: rgb(204, 204, 204);
    transition-duration: 0.4s;
    cursor: pointer;
 }
 
 .button:hover {
-   background-color: grey;
+   background-color: rgb(16, 78, 0);
+   color: white;
 }
