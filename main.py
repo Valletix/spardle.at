@@ -14,7 +14,7 @@ product_df = pd.DataFrame(columns=["product_brand",
                                     "product_img_folder"])
 
 def normalize_strings(text):
-    not_wanted_chars = ["\\", "/", "*", "?", "!", "<", ">", "\""]
+    not_wanted_chars = ["\\", "/", "*", "?", "!", "<", ">", "\"", "%"]
     new_text = "".join(filter(lambda c: c not in not_wanted_chars, text))
     return new_text
             
