@@ -4,7 +4,7 @@ from pydoll.browser.chromium import Chrome
 from pydoll.constants import Key
 import re
 import os
-
+import time
 
 product_df = pd.DataFrame(columns=["product_brand",
                                     "product_name",
@@ -19,16 +19,19 @@ def normalize_strings(text):
     return new_text
             
 
-async def find_products(pages: list[int]):
-    for page in pages:
-        os.makedirs(f"img/{page}", exist_ok=True)
-        async with Chrome() as browser:
-            tab = await browser.start()
-            await tab.go_to(f'https://www.spar.at/produktwelt/lebensmittel?page={page}', timeout=5)
-            
-            await tab.keyboard.press(Key.ESCAPE)
+async def find_products(pages: int):
+    counter = 1
+    os.makedirs(f"img/{counter}", exist_ok=True)
+    async with Chrome() as browser:
+        tab = await browser.start()
+        await tab.go_to(f'https://www.spar.at/produktwelt/lebensmittel?page=1', timeout=5)
+        
 
-            products = await tab.find(class_name="spar-plp__grid-item", find_all=True)
+        while counter <= pages:
+            time.sleep(2)
+            await tab.keyboard.press(Key.ESCAPE)
+            time.sleep(2)
+            products = await tab.find(class_name="spar-plp__grid-item", find_all=True, timeout=2000)
 
             for product in products:
                 brand = await product.find(class_name="product-tile__name1", raise_exc=False)
@@ -61,17 +64,21 @@ async def find_products(pages: list[int]):
                 match = re.search(pattern, image_text)
                 if match:
                     image_link = match.group(1)
-               
+                
                 img_tab = await browser.new_tab(image_link)
                 img_clean = await img_tab.find(tag_name="img")
 
                 image_file_name = f"{normalize_strings(f"{brand_text}_{name_text}_{weight_text}")}.png"
                 
-                await img_clean.take_screenshot(f"img/{page}/{image_file_name}", quality=85)
+                await img_clean.take_screenshot(f"img/{counter}/{image_file_name}", quality=85)
                 await img_tab.close()
 
 
-                product_df.loc[len(product_df)] = [brand_text, name_text, weight_text, price_text, image_file_name, page]
-    product_df.to_json(f"JSONS/products.json", orient="index", indent=4)
+                product_df.loc[len(product_df)] = [brand_text, name_text, weight_text, price_text, image_file_name, counter]
+ 
+            product_df.to_json(f"JSONS/products.json", orient="index", indent=4)
+            counter +=1
+            next_page_button = await tab.find(aria_label="Zur nächsten Seite")
+            await next_page_button.click()
 
-asyncio.run(find_products(pages = [1,2]))
+asyncio.run(find_products(pages = 2))

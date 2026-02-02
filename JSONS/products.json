@@ -4,447 +4,511 @@
         "product_name":"Fourr\u00e9 Biscuits Kakao",
         "product_weight":"500 G",
         "product_price":"1,99",
-        "product_img_name":"S-BUDGET_Fourr\u00e9 Biscuits Kakao_500 G.png"
+        "product_img_name":"S-BUDGET_Fourr\u00e9 Biscuits Kakao_500 G.png",
+        "product_img_folder":1
     },
     "1":{
         "product_brand":"S-BUDGET",
         "product_name":"Choco Nuts XXL Packung",
         "product_weight":"400 G",
         "product_price":"3,29",
-        "product_img_name":"S-BUDGET_Choco Nuts XXL Packung_400 G.png"
+        "product_img_name":"S-BUDGET_Choco Nuts XXL Packung_400 G.png",
+        "product_img_folder":1
     },
     "2":{
         "product_brand":"S-BUDGET",
         "product_name":"Kartoffel-Chips gesalzen",
         "product_weight":"300 G",
         "product_price":"1,66",
-        "product_img_name":"S-BUDGET_Kartoffel-Chips gesalzen_300 G.png"
+        "product_img_name":"S-BUDGET_Kartoffel-Chips gesalzen_300 G.png",
+        "product_img_folder":1
     },
     "3":{
         "product_brand":"S-BUDGET",
         "product_name":"Marmor-Kuchen",
         "product_weight":"400 G",
         "product_price":"2,19",
-        "product_img_name":"S-BUDGET_Marmor-Kuchen_400 G.png"
+        "product_img_name":"S-BUDGET_Marmor-Kuchen_400 G.png",
+        "product_img_folder":1
     },
     "4":{
         "product_brand":"S-BUDGET",
         "product_name":"Pommes Frites",
         "product_weight":"1,2 KG",
         "product_price":"1,78",
-        "product_img_name":"S-BUDGET_Pommes Frites_1,2 KG.png"
+        "product_img_name":"S-BUDGET_Pommes Frites_1,2 KG.png",
+        "product_img_folder":1
     },
     "5":{
         "product_brand":"S-BUDGET",
         "product_name":"Haselnuss Mignon",
         "product_weight":"400 G",
         "product_price":"2,79",
-        "product_img_name":"S-BUDGET_Haselnuss Mignon_400 G.png"
+        "product_img_name":"S-BUDGET_Haselnuss Mignon_400 G.png",
+        "product_img_folder":1
     },
     "6":{
         "product_brand":"S-BUDGET",
         "product_name":"Schokoladen Waffelr\u00f6llchen mit Milchcremef\u00fcllung",
         "product_weight":"200 G",
         "product_price":"2,99",
-        "product_img_name":"S-BUDGET_Schokoladen Waffelr\u00f6llchen mit Milchcremef\u00fcllung_200 G.png"
+        "product_img_name":"S-BUDGET_Schokoladen Waffelr\u00f6llchen mit Milchcremef\u00fcllung_200 G.png",
+        "product_img_folder":1
     },
     "7":{
         "product_brand":"S-BUDGET",
         "product_name":"Kakaokekse 4 x 45g",
         "product_weight":"180 G",
         "product_price":"1,46",
-        "product_img_name":"S-BUDGET_Kakaokekse 4 x 45g_180 G.png"
+        "product_img_name":"S-BUDGET_Kakaokekse 4 x 45g_180 G.png",
+        "product_img_folder":1
     },
     "8":{
         "product_brand":"S-BUDGET",
         "product_name":"Schoko-Milch Kekse 8 x 2 St\u00fcck",
         "product_weight":"268 G",
         "product_price":"3,49",
-        "product_img_name":"S-BUDGET_Schoko-Milch Kekse 8 x 2 St\u00fcck_268 G.png"
+        "product_img_name":"S-BUDGET_Schoko-Milch Kekse 8 x 2 St\u00fcck_268 G.png",
+        "product_img_folder":1
     },
     "9":{
         "product_brand":"S-BUDGET",
         "product_name":"Knabber-Mix",
         "product_weight":"300 G",
         "product_price":"1,49",
-        "product_img_name":"S-BUDGET_Knabber-Mix_300 G.png"
+        "product_img_name":"S-BUDGET_Knabber-Mix_300 G.png",
+        "product_img_folder":1
     },
     "10":{
         "product_brand":"S-BUDGET",
         "product_name":"Stapel Chips Meersalz",
         "product_weight":"175 G",
         "product_price":"1,59",
-        "product_img_name":"S-BUDGET_Stapel Chips Meersalz_175 G.png"
+        "product_img_name":"S-BUDGET_Stapel Chips Meersalz_175 G.png",
+        "product_img_folder":1
     },
     "11":{
         "product_brand":"S-BUDGET",
         "product_name":"Nuss-K\u00fcsschen",
         "product_weight":"360 G",
         "product_price":"2,99",
-        "product_img_name":"S-BUDGET_Nuss-K\u00fcsschen_360 G.png"
+        "product_img_name":"S-BUDGET_Nuss-K\u00fcsschen_360 G.png",
+        "product_img_folder":1
     },
     "12":{
         "product_brand":"S-BUDGET",
         "product_name":"Peanut Minis 20 St\u00fcck",
         "product_weight":"400 G",
         "product_price":"3,29",
-        "product_img_name":"S-BUDGET_Peanut Minis 20 St\u00fcck_400 G.png"
+        "product_img_name":"S-BUDGET_Peanut Minis 20 St\u00fcck_400 G.png",
+        "product_img_folder":1
     },
     "13":{
         "product_brand":"S-BUDGET",
         "product_name":"Caramel Minis 20 St\u00fcck",
         "product_weight":"400 G",
         "product_price":"3,29",
-        "product_img_name":"S-BUDGET_Caramel Minis 20 St\u00fcck_400 G.png"
+        "product_img_name":"S-BUDGET_Caramel Minis 20 St\u00fcck_400 G.png",
+        "product_img_folder":1
     },
     "14":{
         "product_brand":"S-BUDGET",
         "product_name":"Cocos Minis 15 St\u00fcck",
         "product_weight":"400 G",
         "product_price":"3,29",
-        "product_img_name":"S-BUDGET_Cocos Minis 15 St\u00fcck_400 G.png"
+        "product_img_name":"S-BUDGET_Cocos Minis 15 St\u00fcck_400 G.png",
+        "product_img_folder":1
     },
     "15":{
         "product_brand":"S-BUDGET",
         "product_name":"Milk Minis 24 St\u00fcck",
         "product_weight":"400 G",
         "product_price":"3,29",
-        "product_img_name":"S-BUDGET_Milk Minis 24 St\u00fcck_400 G.png"
+        "product_img_name":"S-BUDGET_Milk Minis 24 St\u00fcck_400 G.png",
+        "product_img_folder":1
     },
     "16":{
         "product_brand":"S-BUDGET",
         "product_name":"Birnenh\u00e4lften leicht gezuckert",
         "product_weight":"820 G",
         "product_price":"2,69",
-        "product_img_name":"S-BUDGET_Birnenh\u00e4lften leicht gezuckert_820 G.png"
+        "product_img_name":"S-BUDGET_Birnenh\u00e4lften leicht gezuckert_820 G.png",
+        "product_img_folder":1
     },
     "17":{
         "product_brand":"S-BUDGET",
         "product_name":"Frische Eier aus Freilandhaltung",
         "product_weight":"10 STK",
         "product_price":"3,49",
-        "product_img_name":"S-BUDGET_Frische Eier aus Freilandhaltung_10 STK.png"
+        "product_img_name":"S-BUDGET_Frische Eier aus Freilandhaltung_10 STK.png",
+        "product_img_folder":1
     },
     "18":{
         "product_brand":"S-BUDGET",
         "product_name":"M\u00fcsliriegel Erdbeer-Jogurt 8 x 25G",
         "product_weight":"200 G",
         "product_price":"1,49",
-        "product_img_name":"S-BUDGET_M\u00fcsliriegel Erdbeer-Jogurt 8 x 25G_200 G.png"
+        "product_img_name":"S-BUDGET_M\u00fcsliriegel Erdbeer-Jogurt 8 x 25G_200 G.png",
+        "product_img_folder":1
     },
     "19":{
         "product_brand":"S-BUDGET",
         "product_name":"Heringssalat classic mit MSC-Hering",
         "product_weight":"250 G",
         "product_price":"1,89",
-        "product_img_name":"S-BUDGET_Heringssalat classic mit MSC-Hering_250 G.png"
+        "product_img_name":"S-BUDGET_Heringssalat classic mit MSC-Hering_250 G.png",
+        "product_img_folder":1
     },
     "20":{
         "product_brand":"S-BUDGET",
         "product_name":"Kartoffeln",
         "product_weight":"5 KG",
         "product_price":"3,79",
-        "product_img_name":"S-BUDGET_Kartoffeln_5 KG.png"
+        "product_img_name":"S-BUDGET_Kartoffeln_5 KG.png",
+        "product_img_folder":1
     },
     "21":{
         "product_brand":"S-BUDGET",
         "product_name":"Kalbsbratw\u00fcrstel",
         "product_weight":"320 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Kalbsbratw\u00fcrstel_320 G.png"
+        "product_img_name":"S-BUDGET_Kalbsbratw\u00fcrstel_320 G.png",
+        "product_img_folder":1
     },
     "22":{
         "product_brand":"S-BUDGET",
         "product_name":"Euka-Menthol",
         "product_weight":"200 G",
         "product_price":"1,59",
-        "product_img_name":"S-BUDGET_Euka-Menthol_200 G.png"
+        "product_img_name":"S-BUDGET_Euka-Menthol_200 G.png",
+        "product_img_folder":1
     },
     "23":{
         "product_brand":"S-BUDGET",
         "product_name":"Hendl Fleischb\u00e4llchen frisch",
         "product_weight":"260 G",
         "product_price":"2,99",
-        "product_img_name":"S-BUDGET_Hendl Fleischb\u00e4llchen frisch_260 G.png"
+        "product_img_name":"S-BUDGET_Hendl Fleischb\u00e4llchen frisch_260 G.png",
+        "product_img_folder":1
     },
     "24":{
         "product_brand":"S-BUDGET",
         "product_name":"Gem\u00fcsebouillon",
         "product_weight":"140 G",
         "product_price":"0,98",
-        "product_img_name":"S-BUDGET_Gem\u00fcsebouillon_140 G.png"
+        "product_img_name":"S-BUDGET_Gem\u00fcsebouillon_140 G.png",
+        "product_img_folder":1
     },
     "25":{
         "product_brand":"S-BUDGET",
         "product_name":"Mascarpone",
         "product_weight":"500 G",
         "product_price":"3,98",
-        "product_img_name":"S-BUDGET_Mascarpone_500 G.png"
+        "product_img_name":"S-BUDGET_Mascarpone_500 G.png",
+        "product_img_folder":1
     },
     "26":{
         "product_brand":"S-BUDGET",
         "product_name":"Ice Cream-Cookies Vanille 6 St\u00fcck",
         "product_weight":"360 ML",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Ice Cream-Cookies Vanille 6 St\u00fcck_360 ML.png"
+        "product_img_name":"S-BUDGET_Ice Cream-Cookies Vanille 6 St\u00fcck_360 ML.png",
+        "product_img_folder":1
     },
     "27":{
         "product_brand":"S-BUDGET",
         "product_name":"Radieschen 150 g",
         "product_weight":null,
         "product_price":"0,89",
-        "product_img_name":"S-BUDGET_Radieschen 150 g_None.png"
+        "product_img_name":"S-BUDGET_Radieschen 150 g_None.png",
+        "product_img_folder":1
     },
     "28":{
         "product_brand":"S-BUDGET",
         "product_name":"Fish-Nuggets aus MSC-Alaska-Seelachs",
         "product_weight":"200 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Fish-Nuggets aus MSC-Alaska-Seelachs_200 G.png"
+        "product_img_name":"S-BUDGET_Fish-Nuggets aus MSC-Alaska-Seelachs_200 G.png",
+        "product_img_folder":1
     },
     "29":{
         "product_brand":"S-BUDGET",
         "product_name":"Pfeffer bunt ganz 70g",
         "product_weight":null,
         "product_price":"1,69",
-        "product_img_name":"S-BUDGET_Pfeffer bunt ganz 70g_None.png"
+        "product_img_name":"S-BUDGET_Pfeffer bunt ganz 70g_None.png",
+        "product_img_folder":1
     },
     "30":{
         "product_brand":"S-BUDGET",
         "product_name":"Cheese Burger 4 St\u00fcck",
         "product_weight":"480 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Cheese Burger 4 St\u00fcck_480 G.png"
+        "product_img_name":"S-BUDGET_Cheese Burger 4 St\u00fcck_480 G.png",
+        "product_img_folder":1
     },
     "31":{
         "product_brand":"S-BUDGET",
         "product_name":"Petersilie tiefgek\u00fchlt, geschnitten",
         "product_weight":"75 G",
         "product_price":"0,99",
-        "product_img_name":"S-BUDGET_Petersilie tiefgek\u00fchlt, geschnitten_75 G.png"
+        "product_img_name":"S-BUDGET_Petersilie tiefgek\u00fchlt, geschnitten_75 G.png",
+        "product_img_folder":1
     },
     "32":{
         "product_brand":"S-BUDGET ASIA",
         "product_name":"Gebratene Nudeln",
         "product_weight":"KG",
         "product_price":"1,39",
-        "product_img_name":"S-BUDGET ASIA_Gebratene Nudeln_KG.png"
+        "product_img_name":"S-BUDGET ASIA_Gebratene Nudeln_KG.png",
+        "product_img_folder":2
     },
     "33":{
         "product_brand":"S-BUDGET",
         "product_name":"Passierte Tomaten",
         "product_weight":"500 G",
         "product_price":"0,69",
-        "product_img_name":"S-BUDGET_Passierte Tomaten_500 G.png"
+        "product_img_name":"S-BUDGET_Passierte Tomaten_500 G.png",
+        "product_img_folder":2
     },
     "34":{
         "product_brand":"S-BUDGET",
         "product_name":"Leberk\u00e4se per Packung",
         "product_weight":"500 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Leberk\u00e4se per Packung_500 G.png"
+        "product_img_name":"S-BUDGET_Leberk\u00e4se per Packung_500 G.png",
+        "product_img_folder":2
     },
     "35":{
         "product_brand":"S-BUDGET",
         "product_name":"Wurstkn\u00f6del 10 St\u00fcck",
         "product_weight":"1 KG",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Wurstkn\u00f6del 10 St\u00fcck_1 KG.png"
+        "product_img_name":"S-BUDGET_Wurstkn\u00f6del 10 St\u00fcck_1 KG.png",
+        "product_img_folder":2
     },
     "36":{
         "product_brand":"S-BUDGET",
         "product_name":"Snack Sticks gesalzen",
         "product_weight":"150 G",
         "product_price":"1,59",
-        "product_img_name":"S-BUDGET_Snack Sticks gesalzen_150 G.png"
+        "product_img_name":"S-BUDGET_Snack Sticks gesalzen_150 G.png",
+        "product_img_folder":2
     },
     "37":{
         "product_brand":"S-BUDGET",
         "product_name":"Porridge natur",
         "product_weight":"60 G",
         "product_price":"0,79",
-        "product_img_name":"S-BUDGET_Porridge natur_60 G.png"
+        "product_img_name":"S-BUDGET_Porridge natur_60 G.png",
+        "product_img_folder":2
     },
     "38":{
         "product_brand":"S-BUDGET",
         "product_name":"Langkornreis",
         "product_weight":"1 KG",
         "product_price":"1,29",
-        "product_img_name":"S-BUDGET_Langkornreis_1 KG.png"
+        "product_img_name":"S-BUDGET_Langkornreis_1 KG.png",
+        "product_img_folder":2
     },
     "39":{
         "product_brand":"S-BUDGET",
         "product_name":"Nuss-Mischung",
         "product_weight":"200 G",
         "product_price":"2,99",
-        "product_img_name":"S-BUDGET_Nuss-Mischung_200 G.png"
+        "product_img_name":"S-BUDGET_Nuss-Mischung_200 G.png",
+        "product_img_folder":2
     },
     "40":{
         "product_brand":"S-BUDGET",
         "product_name":"Schnittlauch gefriergetrocknet 12,5g",
         "product_weight":null,
         "product_price":"1,49",
-        "product_img_name":"S-BUDGET_Schnittlauch gefriergetrocknet 12,5g_None.png"
+        "product_img_name":"S-BUDGET_Schnittlauch gefriergetrocknet 12,5g_None.png",
+        "product_img_folder":2
     },
     "41":{
         "product_brand":"S-BUDGET",
         "product_name":"Erdbeer-Schok-Vanille Eis",
         "product_weight":"2 L",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Erdbeer-Schok-Vanille Eis_2 L.png"
+        "product_img_name":"S-BUDGET_Erdbeer-Schok-Vanille Eis_2 L.png",
+        "product_img_folder":2
     },
     "42":{
         "product_brand":"S-BUDGET ASIA",
         "product_name":"Cup Beef Taste",
         "product_weight":null,
         "product_price":"0,99",
-        "product_img_name":"S-BUDGET ASIA_Cup Beef Taste_None.png"
+        "product_img_name":"S-BUDGET ASIA_Cup Beef Taste_None.png",
+        "product_img_folder":2
     },
     "43":{
         "product_brand":"S-BUDGET",
         "product_name":"Sardellenfilets in Sonnenblumen\u00f6l",
         "product_weight":"90 G",
         "product_price":"2,19",
-        "product_img_name":"S-BUDGET_Sardellenfilets in Sonnenblumen\u00f6l_90 G.png"
+        "product_img_name":"S-BUDGET_Sardellenfilets in Sonnenblumen\u00f6l_90 G.png",
+        "product_img_folder":2
     },
     "44":{
         "product_brand":"S-BUDGET",
         "product_name":"ASC Riesengarnelen roh, mit Schale",
         "product_weight":"900 G",
         "product_price":"15,99",
-        "product_img_name":"S-BUDGET_ASC Riesengarnelen roh, mit Schale_900 G.png"
+        "product_img_name":"S-BUDGET_ASC Riesengarnelen roh, mit Schale_900 G.png",
+        "product_img_folder":2
     },
     "45":{
         "product_brand":"S-BUDGET",
         "product_name":"MSC Thunfisch-Aufstrich",
         "product_weight":"150 G",
         "product_price":"1,99",
-        "product_img_name":"S-BUDGET_MSC Thunfisch-Aufstrich_150 G.png"
+        "product_img_name":"S-BUDGET_MSC Thunfisch-Aufstrich_150 G.png",
+        "product_img_folder":2
     },
     "46":{
         "product_brand":"S-BUDGET",
         "product_name":"Sonnenblumenbrot",
         "product_weight":"500 G",
         "product_price":"1,99",
-        "product_img_name":"S-BUDGET_Sonnenblumenbrot_500 G.png"
+        "product_img_name":"S-BUDGET_Sonnenblumenbrot_500 G.png",
+        "product_img_folder":2
     },
     "47":{
         "product_brand":"S-BUDGET",
         "product_name":"\u00d6sterreichischer Tilsiter 45% F.i.T.",
         "product_weight":"350 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_\u00d6sterreichischer Tilsiter 45% F.i.T._350 G.png"
+        "product_img_name":"S-BUDGET_\u00d6sterreichischer Tilsiter 45% F.i.T._350 G.png",
+        "product_img_folder":2
     },
     "48":{
         "product_brand":"S-BUDGET",
         "product_name":"Fischst\u00e4bchen mit MSC-Alaska Seelachs 30 St\u00fcck",
         "product_weight":"900 G",
         "product_price":"4,69",
-        "product_img_name":"S-BUDGET_Fischst\u00e4bchen mit MSC-Alaska Seelachs 30 St\u00fcck_900 G.png"
+        "product_img_name":"S-BUDGET_Fischst\u00e4bchen mit MSC-Alaska Seelachs 30 St\u00fcck_900 G.png",
+        "product_img_folder":2
     },
     "49":{
         "product_brand":"S-BUDGET",
         "product_name":"Kakao",
         "product_weight":"1 L",
         "product_price":"1,99",
-        "product_img_name":"S-BUDGET_Kakao_1 L.png"
+        "product_img_name":"S-BUDGET_Kakao_1 L.png",
+        "product_img_folder":2
     },
     "50":{
         "product_brand":"S-BUDGET",
         "product_name":"Ananasscheiben",
         "product_weight":"820 G",
         "product_price":"2,29",
-        "product_img_name":"S-BUDGET_Ananasscheiben_820 G.png"
+        "product_img_name":"S-BUDGET_Ananasscheiben_820 G.png",
+        "product_img_folder":2
     },
     "51":{
         "product_brand":"S-BUDGET",
         "product_name":"Bergwurst",
         "product_weight":"350 G",
         "product_price":"4,79",
-        "product_img_name":"S-BUDGET_Bergwurst_350 G.png"
+        "product_img_name":"S-BUDGET_Bergwurst_350 G.png",
+        "product_img_folder":2
     },
     "52":{
         "product_brand":"S-BUDGET",
         "product_name":"Cevapcici",
         "product_weight":"750 G",
         "product_price":"5,99",
-        "product_img_name":"S-BUDGET_Cevapcici_750 G.png"
+        "product_img_name":"S-BUDGET_Cevapcici_750 G.png",
+        "product_img_folder":2
     },
     "53":{
         "product_brand":"S-BUDGET",
         "product_name":"Brustgeschnetzeltes",
         "product_weight":"350 G",
         "product_price":"6,59",
-        "product_img_name":"S-BUDGET_Brustgeschnetzeltes_350 G.png"
+        "product_img_name":"S-BUDGET_Brustgeschnetzeltes_350 G.png",
+        "product_img_folder":2
     },
     "54":{
         "product_brand":"S-BUDGET",
         "product_name":"Jauseneier",
         "product_weight":"6 STK",
         "product_price":"2,39",
-        "product_img_name":"S-BUDGET_Jauseneier_6 STK.png"
+        "product_img_name":"S-BUDGET_Jauseneier_6 STK.png",
+        "product_img_folder":2
     },
     "55":{
         "product_brand":"S-BUDGET",
         "product_name":"Haltbare Magermilch 0,5% Fett",
         "product_weight":"1 L",
         "product_price":"0,85",
-        "product_img_name":"S-BUDGET_Haltbare Magermilch 0,5% Fett_1 L.png"
+        "product_img_name":"S-BUDGET_Haltbare Magermilch 0,5% Fett_1 L.png",
+        "product_img_folder":2
     },
     "56":{
         "product_brand":"S-BUDGET",
         "product_name":"Fruchtjogurt Heidelbeer",
         "product_weight":"180 G",
         "product_price":"0,55",
-        "product_img_name":"S-BUDGET_Fruchtjogurt Heidelbeer_180 G.png"
+        "product_img_name":"S-BUDGET_Fruchtjogurt Heidelbeer_180 G.png",
+        "product_img_folder":2
     },
     "57":{
         "product_brand":"S-BUDGET",
         "product_name":"Bl\u00fctenhonig",
         "product_weight":"500 G",
         "product_price":"3,49",
-        "product_img_name":"S-BUDGET_Bl\u00fctenhonig_500 G.png"
+        "product_img_name":"S-BUDGET_Bl\u00fctenhonig_500 G.png",
+        "product_img_folder":2
     },
     "58":{
         "product_brand":"S-BUDGET",
         "product_name":"Kichererbsen",
         "product_weight":"500 G",
         "product_price":"1,59",
-        "product_img_name":"S-BUDGET_Kichererbsen_500 G.png"
+        "product_img_name":"S-BUDGET_Kichererbsen_500 G.png",
+        "product_img_folder":2
     },
     "59":{
         "product_brand":"S-BUDGET",
         "product_name":"Inl\u00e4nder Rum- Kokos Kugeln",
         "product_weight":"300 G",
         "product_price":"3,49",
-        "product_img_name":"S-BUDGET_Inl\u00e4nder Rum- Kokos Kugeln_300 G.png"
+        "product_img_name":"S-BUDGET_Inl\u00e4nder Rum- Kokos Kugeln_300 G.png",
+        "product_img_folder":2
     },
     "60":{
         "product_brand":"S-BUDGET",
         "product_name":"Selchfleischaufstrich",
         "product_weight":"150 G",
         "product_price":"1,29",
-        "product_img_name":"S-BUDGET_Selchfleischaufstrich_150 G.png"
+        "product_img_name":"S-BUDGET_Selchfleischaufstrich_150 G.png",
+        "product_img_folder":2
     },
     "61":{
         "product_brand":"S-BUDGET",
         "product_name":"Weichk\u00e4se fein & w\u00fcrzig",
         "product_weight":"350 G",
         "product_price":"3,99",
-        "product_img_name":"S-BUDGET_Weichk\u00e4se fein & w\u00fcrzig_350 G.png"
+        "product_img_name":"S-BUDGET_Weichk\u00e4se fein & w\u00fcrzig_350 G.png",
+        "product_img_folder":2
     },
     "62":{
         "product_brand":"S-BUDGET",
         "product_name":"Topfencreme Vanille",
         "product_weight":"180 G",
         "product_price":"0,79",
-        "product_img_name":"S-BUDGET_Topfencreme Vanille_180 G.png"
+        "product_img_name":"S-BUDGET_Topfencreme Vanille_180 G.png",
+        "product_img_folder":2
     },
     "63":{
         "product_brand":"S-BUDGET",
         "product_name":"Erdn\u00fcsse ger\u00f6stet & gesalzen",
         "product_weight":"500 G",
         "product_price":"2,69",
-        "product_img_name":"S-BUDGET_Erdn\u00fcsse ger\u00f6stet & gesalzen_500 G.png"
+        "product_img_name":"S-BUDGET_Erdn\u00fcsse ger\u00f6stet & gesalzen_500 G.png",
+        "product_img_folder":2
     }
 }
