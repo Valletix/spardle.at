@@ -37,17 +37,16 @@ function show_product_info(product) {
 
 function make_guess(product) {
     const guess_price = document.getElementById("input_guess").value;
-    const guessed_price = Number(guess_price);
     const guess_section = document.querySelector("guess-section");
     const guess = document.createElement("p");
-    if (product.product_price > guessed_price){
-        guess.textContent = `${guessed_price}: Zu niedrig!`
+    if (product.product_price > guess_price){
+        guess.textContent = `${guess_price} – Zu niedrig!`
     }
-    else if (product.product_price < guessed_price) {
-        guess.textContent = `${guessed_price}: Zu hoch!`
+    else if (product.product_price < guess_price) {
+        guess.textContent = `${guess_price} – Zu hoch!`
     }
     else {
-        guess.textContent = `${guessed_price}: Passt genau!`
+        guess.textContent = `${guess_price} – Passt genau!`
     }
     guess_section.appendChild(guess)
     
@@ -57,7 +56,14 @@ async function main() {
     const products = await get_products();
     const product = choose_product(products);
     show_product_info(product);
+    const input_field = document.getElementById("input_guess")
     const submit_button = document.getElementById("submit_button");
+    input_field.addEventListener("focus", () => {
+        input_field.setAttribute("placeholder", "0.00");
+    })
+    input_field.addEventListener("blur", () => {
+        input_field.setAttribute("placeholder", "Gib einen Tipp ab...")
+    })
     submit_button.addEventListener("click", () => {
         make_guess(product);
     });
