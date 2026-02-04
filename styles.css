@@ -10,6 +10,11 @@ body {
    padding: 0;
             }
 
+.guess{
+   color: black;
+   background-color: lightgrey;
+}
+
 .button {
    color: black;
    padding: 15px;
