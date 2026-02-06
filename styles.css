@@ -3,11 +3,12 @@ head {
  }
  
 body {
-   color: black;
+   color: rgb(0, 0, 0);
    font-family: sans-serif;
    text-align: center;
    margin: 0;
    padding: 0;
+   font-size: 18px;
 }
 
 #input_guess {
@@ -15,6 +16,7 @@ body {
    border-radius: 8px;
    min-height: 18px;
    margin-right: 4px;
+   font-size: 18px;
 }
 
 .button {
@@ -28,11 +30,11 @@ body {
    transition-duration: 0.4s;
    cursor: pointer;
    margin-bottom: 8px;
+   font-size: 18px;
 }
 
 .button:hover {
-   background-color: #00963F;
-   color: white;
+   background-color: #a80712;
 }
 
 .button:disabled {
@@ -40,25 +42,42 @@ body {
    color:#b8b8b8;
 }
 
-.guess {
-   max-width: 180px;
-   margin-left: -90px;
-   margin-top: 4px;
-   left: 50%;
+.guess_grid {
+   display: grid;
+   grid-template-columns: auto 50px;
+   gap: 2px;
+   max-width: 200px;
+   margin: auto;
+}
+
+.guess_grid > div {
+   margin-top: 2px;
    padding: 3px;
-   border-radius: 10px;
+   border-radius: 3px;
    position: relative;
-   background-color: #5c5c5c;
-   color: #fff;
    -webkit-animation: appear 0.5s;
    animation: appear 0.5s;
+}
+
+.guess {
+   background-color: #e7e7e7;
+}
+
+.direction {
+   background-color: #E40613;
+}
+
+.direction.close{
+   background-color: #e49e06;
+}
+
+.direction.correct {
+   background-color: #00963F;
 }
 
 .product_info {
    margin-bottom: 8px;
 }
-
-
 
 #snackbar {
    visibility: hidden;
