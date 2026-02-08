@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=0.8",charset="UTF-8">
         <title>spardle.at</title>
         <link rel="stylesheet" href="styles.css" >
         
     </head>
 
     <body>
-        <h1 id="headline">Errate den Preis von diesem Produkt:</h1>
+        <br>
+        <input class="button", type="submit" id="tutorial_button" value="Tutorial">
+
+        <div id="tutorial_modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal_content">
+                <span class="close_button" id="tutorial_close_button">&times;</span>
+                <h2>Wie funktioniert das hier?</h2>
+                <p>In diesem kleinen Spiel musst du den Preis von einem Produkt bei Spar erraten!
+                    Dafür hast du sechs Versuche! Du bekommst nach jedem abgegebenen Tipp einen Hinweis,
+                    je nachdem wie weit du vom Preis entfernt bist:</p>
+                <p></p>
+
+                <div class = "guess_grid">
+                    <div class = "guess">€ 1.99</div>
+                    <div class = "direction">🔼</div>    
+                </div>
+                Mehr als 25% vom Preis entfernt und zu niedrig.
+                <br><br>
+                <div class = "guess_grid">
+                    <div class = "guess">€ 2.99</div>
+                    <div class = "direction close">🔽</div>    
+                </div>
+                Weniger als 25% vom Preis entfernt und zu hoch.
+                <br><br>
+                <div class = "guess_grid">
+                    <div class = "guess">€ 2.59</div>
+                    <div class = "direction almost">🔽</div>    
+                </div>
+                Weniger als 5% vom Preis entfernt und zu hoch.
+                <br><br>
+                <div class = "guess_grid">
+                    <div class = "guess">€ 2.69</div>
+                    <div class = "direction correct">✅</div>    
+                </div>
+                Genau richtig!
+                
+            </div>
+
+        </div>
+        <h2 id="headline">Errate den Preis von diesem Produkt:</h2>
         <img_section></img_section>
         <section></section>
         <script type="module" src="functions.js"></script>
@@ -18,6 +58,6 @@
 
         <guess_section></guess_section>
 
-        <div id="snackbar">Du musst vorher einen Tipp abgeben!</div>
+        <div id="snackbar"></div>
         
     </body>

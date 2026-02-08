@@ -1,12 +1,5 @@
-MODALS - Tutorial einbauen
-
-Lösung aufhübschen
+Tutorial-Button hübschen
 
 Datacleaning
 
-Max Value für Eingabe
-
-Idee von Costcodle übernehmen?
-    Lösung innerhalb 5% 
-
-Enter für Eingabe
+mobile-friendly optimizing

@@ -12,7 +12,15 @@ function choose_product(product_json) {
     const product = product_json[rand_num];
     return product;
 }
+function show_tutorial(){
+    const tutorial_modal = document.getElementById("tutorial_modal");
+    tutorial_modal.style.display = "block";
+}
 
+function close_tutorial() {
+    const tutorial_modal = document.getElementById("tutorial_modal");
+    tutorial_modal.style.display = "none";
+}
 function show_product_info(product) {
     
     const section = document.querySelector("section");
@@ -39,21 +47,31 @@ function show_product_info(product) {
 }
 
 function add_event_listeners(product) {
-    const input_field = document.getElementById("input_guess")
+    const tutorial_button = document.getElementById("tutorial_button")
+    const input_field = document.getElementById("input_guess");
     const submit_button = document.getElementById("submit_button");
+    const tutorial_close_button = document.getElementById("tutorial_close_button");
+
+    tutorial_button.addEventListener("click", () => {
+        show_tutorial();
+    });
+    tutorial_close_button.addEventListener("click", () => {
+        close_tutorial();
+    });
     input_field.addEventListener("focus", () => {
         input_field.setAttribute("placeholder", "0.00");
-    })
+    });
     input_field.addEventListener("keydown", function(event) {
         if(event.key === "Enter") {
             submit_button.click();
         }
-    })
+    });
     input_field.addEventListener("blur", () => {
         input_field.setAttribute("placeholder", "Gib einen Tipp ab...")
-    })
+    });
     submit_button.addEventListener("click", () => {
         make_guess(product);
+        input_field.value = "";
     });
 }
 
@@ -70,7 +88,11 @@ function make_guess(product) {
     const guess_price = document.getElementById("input_guess").value;
 
     if (guess_price == "") {
-        no_input();
+        wrong_input("Du musst vorher einen Tipp abgeben!");
+        return
+    }
+    if (guess_price <= 0 || guess_price >= 1000) {
+        wrong_input("Der Eingabewert muss zwischen 0 und 1000 € liegen.");
         return
     }
    
@@ -89,31 +111,23 @@ function incorrect_guess(
     direction,
     guess_price, 
     product_price) {
+    
 
-    if (product_price*0.75 > guess_price){
+    if (product_price*0.95 <= guess_price && guess_price <= product_price*1.05) {
+        direction.classList.add("almost")
+    }
+    else if (product_price*0.75 <= guess_price && guess_price <= product_price*1.25) {
+        direction.classList.add("close");
+    }
+    if (product_price > guess_price){
         guess.textContent = `€ ${guess_price}`;
         direction.textContent = "🔼";
         guess_grid.appendChild(guess);
         guess_grid.appendChild(direction);
     }
-    else if (product_price > guess_price) {
-        guess.textContent = `€ ${guess_price}`;
-        direction.textContent = "🔼"
-        direction.classList.add("close")
-        guess_grid.appendChild(guess);
-        guess_grid.appendChild(direction);
-        
-    }
-    else if (product_price*1.25 < guess_price) {
+    else {
         guess.textContent = `€ ${guess_price}`;
         direction.textContent = "🔽"
-        guess_grid.appendChild(guess);
-        guess_grid.appendChild(direction);
-    }
-    else if (product_price < guess_price) {
-        guess.textContent = `€ ${guess_price}`;
-        direction.textContent = "🔽"
-        direction.classList.add("close")
         guess_grid.appendChild(guess);
         guess_grid.appendChild(direction);
     }
@@ -149,10 +163,13 @@ function correct_guess(
 
 function show_solution(product_price) {
     const guess_section = document.querySelector("guess_section");
+    const guess_grid = document.createElement("div");
+    guess_grid.classList.add("guess_grid", "solution");
     const solution = document.createElement("div");
-    solution.classList.add("guess", "correct");
-    solution.textContent = `Lösung: ${product_price}`;
-    guess_section.appendChild(solution);
+    solution.classList.add("guess");
+    solution.textContent = `Lösung: € ${product_price}`;
+    guess_grid.appendChild(solution);
+    guess_section.appendChild(guess_grid);
     return
 }
 
@@ -163,9 +180,10 @@ function disable_inputs() {
     submit_button.disabled = true;
 }
 
-function no_input() {
+function wrong_input(message) {
     var snackbar = document.getElementById("snackbar");
     snackbar.className = "show";
+    snackbar.textContent = message;
     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
 }
 
