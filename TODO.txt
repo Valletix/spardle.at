@@ -1,5 +1,11 @@
 Tutorial-Button hübschen
 
+Header machen
+
+Stats-history feature
+
+Daily game draus machen
+
 Datacleaning
 
 mobile-friendly optimizing

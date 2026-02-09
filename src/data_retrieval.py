@@ -70,13 +70,13 @@ async def find_products(pages: int):
 
                 image_file_name = f"{normalize_strings(f"{brand_text}_{name_text}_{weight_text}")}.png"
                 
-                await img_clean.take_screenshot(f"img/{counter}/{image_file_name}", quality=85)
+                await img_clean.take_screenshot(f"./img/{counter}/{image_file_name}", quality=85)
                 await img_tab.close()
 
 
                 product_df.loc[len(product_df)] = [brand_text, name_text, weight_text, price_text, image_file_name, counter]
  
-            product_df.to_json(f"JSONS/products.json", orient="index", indent=4)
+            product_df.to_json(f"./jsons/products.json", orient="index", indent=4)
             counter +=1
             next_page_button = await tab.find(aria_label="Zur nächsten Seite")
             await next_page_button.click()

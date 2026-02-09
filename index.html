@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta name="viewport", content="width=device-width, initial-scale=0.8",charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0",charset="UTF-8">
         <title>spardle.at</title>
         <link rel="stylesheet" href="styles.css" >
         
@@ -9,9 +9,10 @@
 
     <body>
         <br>
-        <input class="button", type="submit" id="tutorial_button" value="Tutorial">
+        <input class="button" type="button" id="tutorial_button" value="Tutorial">
+        <input class="button" type="button" id="stats_button" value="Statistik">
 
-        <div id="tutorial_modal" class="modal">
+        <div id="tutorial_modal" class="modal_backdrop">
             <!-- Modal content -->
             <div class="modal_content">
                 <span class="close_button" id="tutorial_close_button">&times;</span>
@@ -19,7 +20,6 @@
                 <p>In diesem kleinen Spiel musst du den Preis von einem Produkt bei Spar erraten!
                     Dafür hast du sechs Versuche! Du bekommst nach jedem abgegebenen Tipp einen Hinweis,
                     je nachdem wie weit du vom Preis entfernt bist:</p>
-                <p></p>
 
                 <div class = "guess_grid">
                     <div class = "guess">€ 1.99</div>
@@ -46,12 +46,47 @@
                 Genau richtig!
                 
             </div>
+            
+
+        </div>
+         <div id="stats_modal" class="modal_backdrop">
+            <!-- Modal content -->
+            <div class="modal_content">
+                <span class="close_button" id="stats_close_button">&times;</span>
+                <h2>Statistik</h2>
+                <div class="stats_grid">
+                <div>
+                    <div class="stats_number", id="games_played">20</div>
+                    <div>Gespielt</div>
+                </div>
+               <div>
+                    <div class="stats_number", id="win_percent">85</div>
+                    <div>Win%</div>
+                </div>
+                <div>
+                    <div class="stats_number", id="longest_streak">17</div>
+                    <div>Längste<br>Serie</div>
+                </div>
+                <div>
+                    <div class="stats_number", id="current_streak">3</div>
+                    <div>Aktuelle<br>Serie</div>
+                </div>
+                </div>
+               
+                <h3>Nach Versuchen</h3>
+                <div class="chart_container">
+                    <canvas id="stats_chart", style="height: 200px"></canvas>
+                </div>
+                
+                <script type="module" src="src/stats.js"></script>
+            </div>
+            
 
         </div>
         <h2 id="headline">Errate den Preis von diesem Produkt:</h2>
         <img_section></img_section>
         <section></section>
-        <script type="module" src="functions.js"></script>
+        <script type="module" src="src/main.js"></script>
         <br>
         <input type="number" id="input_guess" placeholder="Gib einen Tipp ab...">
         <input class = "button" type="submit" id="submit_button" value="Raten">
