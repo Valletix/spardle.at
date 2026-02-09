@@ -1,8 +1,8 @@
-Tutorial-Button hübschen
+Buttons hübschen
 
 Header machen
 
-Stats-history feature
+Stats-history aktualisieren, wenn gelöst
 
 Daily game draus machen
 

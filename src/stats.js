@@ -1,12 +1,42 @@
 import "https://cdn.jsdelivr.net/npm/chart.js@4.5.0";
 import "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels";
 
+function calculate_stats() {
+  var game_data = JSON.parse(localStorage.getItem("guesses_by_game"));
+  var number_of_games = Object.keys(game_data).length; 
+  var solved_counter = 0;
+  var current_streak = 0;
+  var max_streak = 0;
+  var guess_distribution = [0,0,0,0,0,0,0]
 
+  for (let game in game_data) {
+    console.log(game);
+      if (game_data[game]["solved"] == true) {
+        solved_counter +=1;
+        current_streak +=1;
+        max_streak = Math.max(current_streak, max_streak);
+        var number_of_guesses = Object.keys(game_data[game]["guess_values"]).length;
+        guess_distribution[number_of_guesses-1] +=1;
+      }
+      else {
+        current_streak = 0;
+        guess_distribution[6] +=1;
+      }
+  }
+var win_percent = solved_counter / number_of_games * 100;
+
+document.getElementById("games_played").textContent = number_of_games;
+document.getElementById("win_percent").textContent = win_percent;
+document.getElementById("max_streak").textContent = max_streak;
+document.getElementById("current_streak").textContent = current_streak;
+
+return guess_distribution;
+}
 
 function draw_graph() {
 
   const x_values = ["1: ", "2: ", "3: ", "4: ", "5: ", "6: ", "Failed: "];
-  const y_values = [2, 4, 7, 10, 7, 2, 1];
+  const y_values = calculate_stats();
   const bar_colors = ["#06b81e","#5fe406","#a1e406","#d5e406","#e49e06","#e45f06","#E40613"];
 
   const stats_chart = document.getElementById("stats_chart");
