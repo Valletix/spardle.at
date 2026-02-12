@@ -1,12 +1,8 @@
 import confetti from "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/+esm";
+import {calculate_stats, draw_graph} from "./stats.js";
+import "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"
 
-if (JSON.parse(localStorage.getItem("guesses_by_game")) == null) {
-        var game_count = 0;
-    }
-    else {
-        var game_count = Object.keys(JSON.parse(localStorage.getItem("guesses_by_game"))).length;
-    }
-
+var current_date = new Date().toISOString().slice(0,10);
 
 async function get_products() {
     const request = new Request(`../jsons/products_cleaned.json`);
@@ -16,13 +12,31 @@ async function get_products() {
 }
 
 function choose_product(product_json) {
-    const rand_num = Math.floor(Math.random() * 64);
+    Math.seedrandom(current_date);
+    const rand_num = Math.floor(Math.random() * 14400);
     const product = product_json[rand_num];
     return product;
 }
+
+function restore_guesses(product) {
+    var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+    if (guess_data == null || guess_data[current_date] == null) {
+        return;
+    }
+    const guesses  = guess_data[current_date]["guess_values"]
+    guesses.forEach(guess => {
+        make_guess(product, true, guess["value"]);
+    })
+        
+}
+
 function show_modal(modal){
     const current_modal = document.getElementById(modal);
     current_modal.style.display = "block";
+    if (modal == "stats_modal") {
+        calculate_stats();
+        draw_graph();
+    }
 }
 
 function close_modal(modal) {
@@ -41,7 +55,8 @@ function show_product_info(product) {
     product_brand.classList.add("product_info");
     product_name.classList.add("product_info");
     product_weight.classList.add("product_info");
-    product_img.src = `../img/${product.product_img_folder}/${product.product_img_name}`;
+    // product_img.src = `../img/${product.product_img_folder}/${product.product_img_name}`;
+    product_img.src = product.product_img_link;
     product_img.loading = "lazy";
     product_img.height = 200;
     product_brand.textContent = "Marke: " + product.product_brand;
@@ -90,7 +105,7 @@ function add_event_listeners(product) {
     });
 }
 
-function make_guess(product) {
+function make_guess(product, restored = false, guess_price = null) {
 
     const guess_section = document.querySelector("guess_section");
     const guess_grid = document.createElement("div");
@@ -100,7 +115,10 @@ function make_guess(product) {
     guess_grid.classList.add("guess_grid");
     guess.classList.add("guess");
     direction.classList.add("direction")
-    const guess_price = document.getElementById("input_guess").value;
+    if (guess_price == null) {
+        guess_price = document.getElementById("input_guess").value;
+    }
+    
 
     if (guess_price == "") {
         wrong_input("Du musst vorher einen Tipp abgeben!");
@@ -112,10 +130,10 @@ function make_guess(product) {
     }
    
     if(product.product_price != guess_price) {
-        incorrect_guess(guess_section, guess_grid, guess, direction, guess_price, product.product_price);
+        incorrect_guess(guess_section, guess_grid, guess, direction, guess_price, product.product_price, restored);
     }
     else {
-        correct_guess(guess_section, guess_grid, guess, direction, guess_price);
+        correct_guess(guess_section, guess_grid, guess, direction, guess_price, restored);
     }
 }
 
@@ -125,7 +143,8 @@ function incorrect_guess(
     guess,
     direction,
     guess_price, 
-    product_price) {
+    product_price,
+    restored) {
 
     if (product_price*0.95 <= guess_price && guess_price <= product_price*1.05) {
         direction.classList.add("almost")
@@ -147,7 +166,10 @@ function incorrect_guess(
     }
 
     guess_section.appendChild(guess_grid);
-    save_data_by_game(guess_price, game_count);
+    if (restored == false) {
+        save_data_by_date(guess_price);
+    }
+    
 
     if (guess_section.children.length >= 6) {
         disable_inputs();
@@ -160,7 +182,8 @@ function correct_guess(
     guess_grid, 
     guess, 
     direction, 
-    guess_price) {
+    guess_price,
+    restored) {
 
     guess.textContent = `€ ${guess_price}`;
     direction.textContent = "✅";
@@ -172,13 +195,15 @@ function correct_guess(
         spread: 70,
         origin: { y: 0.6 },
     });
-    save_data_by_game(guess_price, game_count);
-    var guess_data = JSON.parse(localStorage.getItem("guesses_by_game"));
-    guess_data[game_count]["solved"] = true;
-    localStorage.setItem("guesses_by_game", JSON.stringify(guess_data));
+    if (restored == false) {
+        save_data_by_date(guess_price);
+        var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+        guess_data[current_date]["solved"] = true;
+        localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
+    }
     disable_inputs();
     guess_section.appendChild(guess_grid);
-    
+    setTimeout(show_modal,1000, "stats_modal");
 }
 
 function show_solution(product_price) {
@@ -225,20 +250,18 @@ function save_data_by_game(guess_price, game_count) {
 }
 
 function save_data_by_date(guess_price) {
-    const current_date = new Date().toISOString().slice(0,10);
     var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
-    console.log(guess_data);
     if (guess_data == null) {
-        localStorage.setItem("guesses_by_date", JSON.stringify({[current_date]: [{"value": guess_price}]}));
+        localStorage.setItem("guesses_by_date", JSON.stringify({[current_date]: {"guess_values" : [{"value": guess_price}], "solved": false}}));
     }
     else if (guess_data[current_date] == null){
-        guess_data[current_date] = {"value": guess_price};
+        guess_data[current_date] = {"guess_values" : [{"value": guess_price}], "solved": false};
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
     else {
-        var todays_guess_list = guess_data[current_date];
+        var todays_guess_list = guess_data[current_date]["guess_values"];
         todays_guess_list.push({"value": guess_price})
-        guess_data[current_date] = todays_guess_list
+        guess_data[current_date]["guess_values"] = todays_guess_list
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
 }
@@ -248,6 +271,7 @@ async function main() {
     const product = choose_product(products);
     show_product_info(product);
     add_event_listeners(product);
+    restore_guesses(product);
 }
 
 main()

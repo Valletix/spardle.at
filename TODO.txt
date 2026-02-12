@@ -2,10 +2,6 @@ Buttons hübschen
 
 Header machen
 
-Stats-history aktualisieren, wenn gelöst
-
-Daily game draus machen
-
 Datacleaning
 
 mobile-friendly optimizing

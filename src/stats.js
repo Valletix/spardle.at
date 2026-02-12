@@ -1,16 +1,18 @@
 import "https://cdn.jsdelivr.net/npm/chart.js@4.5.0";
 import "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels";
 
-function calculate_stats() {
-  var game_data = JSON.parse(localStorage.getItem("guesses_by_game"));
+export function calculate_stats() {
+  var game_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+  if (game_data == null) {
+    return guess_distribution
+  }
+
   var number_of_games = Object.keys(game_data).length; 
   var solved_counter = 0;
   var current_streak = 0;
   var max_streak = 0;
   var guess_distribution = [0,0,0,0,0,0,0]
-
   for (let game in game_data) {
-    console.log(game);
       if (game_data[game]["solved"] == true) {
         solved_counter +=1;
         current_streak +=1;
@@ -23,22 +25,25 @@ function calculate_stats() {
         guess_distribution[6] +=1;
       }
   }
-var win_percent = solved_counter / number_of_games * 100;
+  var win_percent = (solved_counter / number_of_games * 100).toFixed(2);
 
-document.getElementById("games_played").textContent = number_of_games;
-document.getElementById("win_percent").textContent = win_percent;
-document.getElementById("max_streak").textContent = max_streak;
-document.getElementById("current_streak").textContent = current_streak;
+  document.getElementById("games_played").textContent = number_of_games;
+  document.getElementById("win_percent").textContent = win_percent;
+  document.getElementById("max_streak").textContent = max_streak;
+  document.getElementById("current_streak").textContent = current_streak;
 
-return guess_distribution;
+  return guess_distribution;
 }
 
-function draw_graph() {
+export function draw_graph() {
 
   const x_values = ["1: ", "2: ", "3: ", "4: ", "5: ", "6: ", "Failed: "];
   const y_values = calculate_stats();
   const bar_colors = ["#06b81e","#5fe406","#a1e406","#d5e406","#e49e06","#e45f06","#E40613"];
-
+  var existing_chart = Chart.getChart("stats_chart")
+  if (existing_chart) {
+    existing_chart.destroy();
+  }
   const stats_chart = document.getElementById("stats_chart");
   Chart.register(ChartDataLabels);
   Chart.defaults.font.size = 16;
@@ -94,5 +99,3 @@ function draw_graph() {
   }
   });
 }
-
-draw_graph();
