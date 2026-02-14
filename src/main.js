@@ -46,9 +46,7 @@ function close_modal(modal) {
 function show_product_info(product) {
     
     const section = document.querySelector("section");
-    const img_section = document.querySelector("img_section");
-   
-    const product_img = document.createElement("img");
+    const product_img = document.getElementById("product_image");
     const product_brand = document.createElement("div");
     const product_name = document.createElement("div");
     const product_weight = document.createElement("div");
@@ -57,15 +55,12 @@ function show_product_info(product) {
     product_weight.classList.add("product_info");
     // product_img.src = `../img/${product.product_img_folder}/${product.product_img_name}`;
     product_img.src = product.product_img_link;
-    product_img.loading = "lazy";
-    product_img.height = 200;
     product_brand.textContent = "Marke: " + product.product_brand;
     product_name.textContent = "Produkt: " + product.product_name;
     product_weight.textContent = "Menge: " + product.product_weight;
     section.appendChild(product_brand);
     section.appendChild(product_name);
     section.appendChild(product_weight);
-    img_section.appendChild(product_img);
 }
 
 function add_event_listeners(product) {
@@ -107,12 +102,12 @@ function add_event_listeners(product) {
 
 function make_guess(product, restored = false, guess_price = null) {
 
-    const guess_section = document.querySelector("guess_section");
-    const guess_grid = document.createElement("div");
+    const guesses_container = document.getElementById("guesses_container");
+    const guess_container = document.createElement("div");
     const guess = document.createElement("div")
     const direction = document.createElement("div");
 
-    guess_grid.classList.add("guess_grid");
+    guess_container.classList.add("guess_container");
     guess.classList.add("guess");
     direction.classList.add("direction")
     if (guess_price == null) {
@@ -130,16 +125,16 @@ function make_guess(product, restored = false, guess_price = null) {
     }
    
     if(product.product_price != guess_price) {
-        incorrect_guess(guess_section, guess_grid, guess, direction, guess_price, product.product_price, restored);
+        incorrect_guess(guesses_container, guess_container, guess, direction, guess_price, product.product_price, restored);
     }
     else {
-        correct_guess(guess_section, guess_grid, guess, direction, guess_price, restored);
+        correct_guess(guesses_container, guess_container, guess, direction, guess_price, restored);
     }
 }
 
 function incorrect_guess(
-    guess_section, 
-    guess_grid,
+    guesses_container, 
+    guess_container,
     guess,
     direction,
     guess_price, 
@@ -152,34 +147,37 @@ function incorrect_guess(
     else if (product_price*0.75 <= guess_price && guess_price <= product_price*1.25) {
         direction.classList.add("close");
     }
+    else {
+        direction.classList.add("far");
+    }
     if (product_price > guess_price){
         guess.textContent = `€ ${guess_price}`;
         direction.textContent = "🔼";
-        guess_grid.appendChild(guess);
-        guess_grid.appendChild(direction);
+        guess_container.appendChild(guess);
+        guess_container.appendChild(direction);
     }
     else {
         guess.textContent = `€ ${guess_price}`;
         direction.textContent = "🔽"
-        guess_grid.appendChild(guess);
-        guess_grid.appendChild(direction);
+        guess_container.appendChild(guess);
+        guess_container.appendChild(direction);
     }
 
-    guess_section.appendChild(guess_grid);
+    guesses_container.appendChild(guess_container);
     if (restored == false) {
         save_data_by_date(guess_price);
     }
     
 
-    if (guess_section.children.length >= 6) {
+    if (guesses_container.children.length >= 7) {
         disable_inputs();
         show_solution(product_price);
     }
 }
 
 function correct_guess(
-    guess_section, 
-    guess_grid, 
+    guesses_container, 
+    guess_container, 
     guess, 
     direction, 
     guess_price,
@@ -188,8 +186,8 @@ function correct_guess(
     guess.textContent = `€ ${guess_price}`;
     direction.textContent = "✅";
     direction.classList.add("correct");
-    guess_grid.appendChild(guess);
-    guess_grid.appendChild(direction);
+    guess_container.appendChild(guess);
+    guess_container.appendChild(direction);
     confetti({
         particleCount: 200,
         spread: 70,
@@ -202,19 +200,19 @@ function correct_guess(
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
     disable_inputs();
-    guess_section.appendChild(guess_grid);
+    guesses_container.appendChild(guess_container);
     setTimeout(show_modal,1000, "stats_modal");
 }
 
 function show_solution(product_price) {
-    const guess_section = document.querySelector("guess_section");
-    const guess_grid = document.createElement("div");
-    guess_grid.classList.add("guess_grid", "solution");
+    const guesses_container = document.getElementById("guesses_container");
+    const guess_container = document.createElement("div");
+    guess_container.classList.add("guess_container", "solution");
     const solution = document.createElement("div");
     solution.classList.add("guess");
     solution.textContent = `Lösung: € ${product_price}`;
-    guess_grid.appendChild(solution);
-    guess_section.appendChild(guess_grid);
+    guess_container.appendChild(solution);
+    guesses_container.appendChild(guess_container);
     return
 }
 

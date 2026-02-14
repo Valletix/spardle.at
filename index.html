@@ -12,7 +12,9 @@
         <input class="button" type="button" id="tutorial_button" value="Tutorial">
         <input class="button" type="button" id="stats_button" value="Statistik">
 
-        <div id="tutorial_modal" class="modal_backdrop">
+       
+        <div id="game_container">
+             <div id="tutorial_modal" class="modal_backdrop">
             <!-- Modal content -->
             <div class="modal_content">
                 <span class="close_button" id="tutorial_close_button">&times;</span>
@@ -21,29 +23,29 @@
                     Dafür hast du sechs Versuche! Du bekommst nach jedem abgegebenen Tipp einen Hinweis,
                     je nachdem wie weit du vom Preis entfernt bist:</p>
 
-                <div class = "guess_grid">
-                    <div class = "guess">€ 1.99</div>
-                    <div class = "direction">🔼</div>    
-                </div>
-                Mehr als 25% vom Preis entfernt und zu niedrig.
-                <br><br>
-                <div class = "guess_grid">
+                <div id = "tutorial_examples">
+                    <div class ="guess_container">
+                        <div class = "guess">€ 1.99</div>
+                        <div class = "direction far">🔼</div> 
+                    </div>   
+                    <p>Mehr als 25% vom Preis entfernt und zu niedrig.</p>
+                <div class = "guess_container">
                     <div class = "guess">€ 2.99</div>
                     <div class = "direction close">🔽</div>    
                 </div>
-                Weniger als 25% vom Preis entfernt und zu hoch.
-                <br><br>
-                <div class = "guess_grid">
+                <p>Weniger als 25% vom Preis entfernt und zu hoch.</p>
+                <div class = "guess_container">
                     <div class = "guess">€ 2.59</div>
                     <div class = "direction almost">🔽</div>    
                 </div>
-                Weniger als 5% vom Preis entfernt und zu hoch.
-                <br><br>
-                <div class = "guess_grid">
+                <p>Weniger als 5% vom Preis entfernt und zu hoch.</p>
+                <div class = "guess_container">
                     <div class = "guess">€ 2.69</div>
                     <div class = "direction correct">✅</div>    
                 </div>
-                Genau richtig!
+                <p>Genau richtig!</p>
+                </div>
+               
                 
             </div>
             
@@ -83,15 +85,32 @@
             
 
         </div>
-        <h2 id="headline">Errate den Preis von diesem Produkt:</h2>
-        <img_section></img_section>
-        <section></section>
-        <script type="module" src="src/main.js"></script>
-        <br>
-        <input type="number" id="input_guess" placeholder="Gib einen Tipp ab...">
-        <input class = "button" type="submit" id="submit_button" value="Raten">
+            <h2 id="headline">Errate den Preis von diesem Produkt:</h2>
+            <div id = product_card>
+                <div id = "image_container">
+                    <img id="product_image">
+                </div>
+            <section></section>
+            </div>
+ 
+        
+            <script type="module" src="src/main.js"></script>
+            <br>
 
-        <guess_section></guess_section>
+            <div class = "guess_section", id="guesses_container"> 
+                <div id = "input_container" class= guess_container>
+                    <div id = text_input_container>
+                        <input type="number" id="input_guess" placeholder="Gib einen Tipp ab...">
+                    </div>
+                    <div id= "submit_container", class="">
+                        <input type="submit" id="submit_button" value="Raten">
+                    </div>
+                    
+                </div> 
+            </div>
+        </div>
+        
+
 
         <div id="snackbar"></div>
         
