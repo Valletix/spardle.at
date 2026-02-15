@@ -1,8 +1,9 @@
-Buttons hübschen
 
 Header machen
 LOGO
 
 Datacleaning
+
+footer machen
 
 mobile-friendly optimizing

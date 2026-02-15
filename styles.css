@@ -1,8 +1,15 @@
-head {
-    color: red;
- }
+* {
+   font-size: 16px;
+}
+
+h1 {
+   font-size: 28px;
+   color: #E40613;
+   margin-bottom: 10px;
+   
+}
  
- p {
+p {
    margin-top: 5px;
    margin-bottom: 10px;
  }
@@ -14,7 +21,7 @@ body {
    align-items: center;
    margin: 0;
    padding: 0;
-   font-size: 16px;
+   background-color: #ffffff;
 }
 
 .modal_backdrop {
@@ -47,7 +54,6 @@ body {
    justify-content: center;
    margin: auto;
    width: 324px;
-
 }
 
 .chart_container {
@@ -81,21 +87,18 @@ body {
    margin-bottom: 8px;
 }
 
-/* .button {
-   width: 109px;
-   margin-left: 2px;
-   color: white;
-   background-color: #E40613;
-   border-width: 2px;
-   border-color: #000;
+.menu_button {
+   background: none;
+   border: none;
    cursor: pointer;
-   border-radius: 3px;
-   font-size: 16px;
-   padding-top: 8px;
-   padding-bottom: 8px;
-} */
+   height: 30px;
+}
+.menu_button_image {
+   height: 100%
+}
 
 #game_container {
+   margin-top: 10px;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -128,14 +131,15 @@ body {
 }
 
 #product_image {
-   height: 100%;
+   max-height: 100%;
+   max-width: 100%;
 }
 
 .product_info {
    width: 300px;
    color: white;
    font-weight: bold;
-   margin-bottom: 8px;
+   margin-bottom: 2px;
    text-shadow: 1px 1px 3px #000;
 }
 
@@ -152,7 +156,7 @@ body {
 }
 
 #text_input_container {
-   font-size: 16px;
+   overflow: hidden;
    height: 100%;
    display: flex;
    flex: 1;
@@ -165,7 +169,7 @@ body {
 #input_guess {
    padding-left: 6px;
    border-radius: 5px;
-   font-size: 16px;
+   overflow: hidden;
    width: 100%;
    height: 100%;
    border: none;
@@ -175,7 +179,6 @@ body {
 
 
 #submit_button {
-   font-size: 16px;
    color: white;
    overflow: hidden;
    width: 100%;
@@ -212,7 +215,6 @@ body {
 
 .guess { 
    display: flex;
-   font-size: 16px;
    height: 100%;
    justify-content: center;
    align-items: center;
@@ -222,14 +224,12 @@ body {
 }
 
 #submit_container {
-   font-size: 16px;
-
    overflow: hidden;
    display: flex;
    justify-content: center;
    align-items: center;
 
-   height: 40px;
+   height: 100%;
    width: 20%;  
    border-radius: 4px;
    margin-left: 5px;
@@ -237,8 +237,6 @@ body {
 }
 
 .direction {
-  
-   font-size: 16px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -278,7 +276,6 @@ body {
    z-index: 1;
    left: 50%;
    bottom: 30px;
-   font-size: 16px;
 }
 
 #snackbar.show {
@@ -326,6 +323,10 @@ body {
    .guess_section {
       width: 299px;
    }
+
+   #tutorial_examples {
+      width: 299px;
+   }
    .product_info {
       width: 275px;
    }
@@ -336,6 +337,11 @@ body {
       width: 250px;
       height: 250px;
    }
+
+   #tutorial_examples {
+      width: 274px;
+   }
+
    .guess_section {
       width: 274px;
    }
@@ -351,9 +357,8 @@ body {
       width: 225px;
       height: 225px;
    }
-   .guess_section {
-      width: 249px;
-   }
+
+
    .product_info {
       width: 225px;
    }
@@ -361,15 +366,50 @@ body {
 
 @media screen and (max-height: 785px) {
 
+   * {
+      font-size: 14px;
+   }
+
+   h1 {
+      font-size: 24px;
+   }
+
+   #input_container {
+      height: 32px;
+   }
+
+   .guess_container {
+      height: 24px;
+   }
+   .menu_button {
+      height: 24px;
+   }
+
+   #image_container {
+      width: 175px;
+      height: 175px;
+   }
+
+   .product_info {
+      width: 175px;
+   }
+
 }
 
-@media screen and (max-height: 760px) {
-
-}
 
 @media screen and (max-height: 725px) {
 
+   #image_container {
+      width: 150px;
+      height: 150px;
+   }
+
+   .product_info {
+      width: 150px;
+   }
+
 }
+
 
 @media screen and (max-height: 700px) {
 
@@ -377,5 +417,4 @@ body {
 
 @media screen and (max-height: 675px) {
 
-  }
 }

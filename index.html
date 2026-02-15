@@ -8,11 +8,14 @@
     </head>
 
     <body>
-        <br>
-        <input class="button" type="button" id="tutorial_button" value="Tutorial">
-        <input class="button" type="button" id="stats_button" value="Statistik">
+        <h1 id="headline">– SPARDLE –</h1>
+        <button id="tutorial_button" class = "menu_button">
+            <img src = "./assets/tutorial_icon.svg" class="menu_button_image">
+        </button>
+        <button id="stats_button" class = "menu_button">
+            <img src = "./assets/stats_icon.svg" class="menu_button_image">
+        </button>
 
-       
         <div id="game_container">
              <div id="tutorial_modal" class="modal_backdrop">
             <!-- Modal content -->
@@ -85,7 +88,6 @@
             
 
         </div>
-            <h2 id="headline">Errate den Preis von diesem Produkt:</h2>
             <div id = product_card>
                 <div id = "image_container">
                     <img id="product_image">

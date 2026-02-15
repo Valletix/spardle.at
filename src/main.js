@@ -49,18 +49,14 @@ function show_product_info(product) {
     const product_img = document.getElementById("product_image");
     const product_brand = document.createElement("div");
     const product_name = document.createElement("div");
-    const product_weight = document.createElement("div");
     product_brand.classList.add("product_info");
     product_name.classList.add("product_info");
-    product_weight.classList.add("product_info");
     // product_img.src = `../img/${product.product_img_folder}/${product.product_img_name}`;
     product_img.src = product.product_img_link;
-    product_brand.textContent = "Marke: " + product.product_brand;
-    product_name.textContent = "Produkt: " + product.product_name;
-    product_weight.textContent = "Menge: " + product.product_weight;
+    product_brand.textContent =  product.product_brand;
+    product_name.textContent =  product.product_name + " – " + product.product_weight;
     section.appendChild(product_brand);
-    section.appendChild(product_name);
-    section.appendChild(product_weight);
+    section.appendChild(product_name)
 }
 
 function add_event_listeners(product) {
