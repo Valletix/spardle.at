@@ -66,6 +66,8 @@ function add_event_listeners(product) {
     const submit_button = document.getElementById("submit_button");
     const tutorial_close_button = document.getElementById("tutorial_close_button");
     const stats_close_button = document.getElementById("stats_close_button");
+    const impressum_button = document.getElementById("impressum_button");
+    const impressum_close_button = document.getElementById("impressum_close_button");
 
     tutorial_button.addEventListener("click", () => {
         show_modal("tutorial_modal");
@@ -78,6 +80,12 @@ function add_event_listeners(product) {
     });
     stats_close_button.addEventListener("click", () => {
         close_modal("stats_modal");
+    });
+    impressum_button.addEventListener("click", () => {
+        show_modal("impressum_modal");
+    });
+    impressum_close_button.addEventListener("click", () => {
+        close_modal("impressum_modal");
     });
     input_field.addEventListener("focus", () => {
         input_field.setAttribute("placeholder", "0.00");
@@ -94,6 +102,8 @@ function add_event_listeners(product) {
         make_guess(product);
         input_field.value = "";
     });
+    
+    
 }
 
 function make_guess(product, restored = false, guess_price = null) {

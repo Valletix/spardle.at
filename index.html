@@ -3,117 +3,174 @@
     <head>
         <meta name="viewport", content="width=device-width, initial-scale=1.0",charset="UTF-8">
         <title>spardle.at</title>
-        <link rel="stylesheet" href="styles.css" >
+        <link rel="icon" type="image" href="./assets/spardle_logo_small.png">
+        <link rel="stylesheet" href="styles/modals.css">
+        <link rel="stylesheet" href="styles/styles.css">
+
         
     </head>
 
     <body>
-        <h1 id="headline">– SPARDLE –</h1>
-        <button id="tutorial_button" class = "menu_button">
-            <img src = "./assets/tutorial_icon.svg" class="menu_button_image">
-        </button>
-        <button id="stats_button" class = "menu_button">
-            <img src = "./assets/stats_icon.svg" class="menu_button_image">
-        </button>
+        <div class = "wrapper">
+            <div id="header">
+                <img id="title_logo" src="./assets/spardle_title_logo.png">
+                <button id="tutorial_button" class = "menu_button">
+                    <img src = "./assets/tutorial_icon.svg" class="menu_button_image">
+                </button>
+                <button id="stats_button" class = "menu_button">
+                    <img src = "./assets/stats_icon.svg" class="menu_button_image">
+                </button>
 
-        <div id="game_container">
-             <div id="tutorial_modal" class="modal_backdrop">
-            <!-- Modal content -->
-            <div class="modal_content">
-                <span class="close_button" id="tutorial_close_button">&times;</span>
-                <h2>Wie funktioniert das hier?</h2>
-                <p>In diesem kleinen Spiel musst du den Preis von einem Produkt bei Spar erraten!
-                    Dafür hast du sechs Versuche! Du bekommst nach jedem abgegebenen Tipp einen Hinweis,
-                    je nachdem wie weit du vom Preis entfernt bist:</p>
-
-                <div id = "tutorial_examples">
-                    <div class ="guess_container">
-                        <div class = "guess">€ 1.99</div>
-                        <div class = "direction far">🔼</div> 
-                    </div>   
-                    <p>Mehr als 25% vom Preis entfernt und zu niedrig.</p>
-                <div class = "guess_container">
-                    <div class = "guess">€ 2.99</div>
-                    <div class = "direction close">🔽</div>    
-                </div>
-                <p>Weniger als 25% vom Preis entfernt und zu hoch.</p>
-                <div class = "guess_container">
-                    <div class = "guess">€ 2.59</div>
-                    <div class = "direction almost">🔽</div>    
-                </div>
-                <p>Weniger als 5% vom Preis entfernt und zu hoch.</p>
-                <div class = "guess_container">
-                    <div class = "guess">€ 2.69</div>
-                    <div class = "direction correct">✅</div>    
-                </div>
-                <p>Genau richtig!</p>
-                </div>
-               
-                
             </div>
             
 
-        </div>
-         <div id="stats_modal" class="modal_backdrop">
-            <!-- Modal content -->
-            <div class="modal_content">
-                <span class="close_button" id="stats_close_button">&times;</span>
-                <h2>Statistik</h2>
-                <div class="stats_grid">
-                <div>
-                    <div class="stats_number", id="games_played">0</div>
-                    <div>Gespielt</div>
-                </div>
-               <div>
-                    <div class="stats_number", id="win_percent">0</div>
-                    <div>Win%</div>
-                </div>
-                <div>
-                    <div class="stats_number", id="max_streak">0</div>
-                    <div>Längste<br>Serie</div>
-                </div>
-                <div>
-                    <div class="stats_number", id="current_streak">0</div>
-                    <div>Aktuelle<br>Serie</div>
-                </div>
-                </div>
-               
-                <h3>Nach Versuchen</h3>
-                <div class="chart_container">
-                    <canvas id="stats_chart", style="height: 200px"></canvas>
-                </div>
-                
-                <script type="module" src="src/stats.js"></script>
-            </div>
-            
+            <div id="game_container">
+                <div id="tutorial_modal" class="modal_backdrop">
+                <div class="modal_content">
+                    <span class="close_button" id="tutorial_close_button">&times;</span>
+                    <h2>Was ist Spardle?</h2>
+                    <p>
+                        Spardle ist ein kleines Spiel, bei dem du den in <b>sechs Versuchen</b> den Preis von einem Produkt bei Spar-Österreich erraten musst.<br><br>
+                        Jeden Tag wartet ein neues, zufälliges Produkt aus dem Spar-Sortiment. Sollte ein Produkt gerade in Aktion sein,
+                        gilt der <b>Originalpreis</b>. Nach jedem Versuch bekommst du einen Hinweis, wie weit vom Preis du entfernt bist.
+                    </p>
+                    <hr>
+                    <h2>Beispiele:</h2>
 
-        </div>
-            <div id = product_card>
-                <div id = "image_container">
-                    <img id="product_image">
-                </div>
-            <section></section>
-            </div>
- 
-        
-            <script type="module" src="src/main.js"></script>
-            <br>
-
-            <div class = "guess_section", id="guesses_container"> 
-                <div id = "input_container" class= guess_container>
-                    <div id = text_input_container>
-                        <input type="number" id="input_guess" placeholder="Gib einen Tipp ab...">
+                    <div id = "tutorial_examples">
+                        <div class ="guess_container">
+                            <div class = "guess">€ 1.99</div>
+                            <div class = "direction far">🔼</div> 
+                        </div>   
+                        <p>Mehr als 25% vom Preis entfernt und zu niedrig.</p>
+                        <div class = "guess_container">
+                            <div class = "guess">€ 2.99</div>
+                            <div class = "direction close">🔽</div>    
+                        </div>
+                        <p>Weniger als 25% vom Preis entfernt und zu hoch.</p>
+                        <div class = "guess_container">
+                            <div class = "guess">€ 2.59</div>
+                            <div class = "direction almost">🔽</div>    
+                        </div>
+                        <p>Weniger als 5% vom Preis entfernt und zu hoch.</p>
+                        <div class = "guess_container">
+                            <div class = "guess">€ 2.69</div>
+                            <div class = "direction correct">✅</div>    
+                        </div>
+                        <p>Genau richtig!</p>
                     </div>
-                    <div id= "submit_container", class="">
-                        <input type="submit" id="submit_button" value="Raten">
+                    <hr>
+                    <div id = "thank_you_messages">
+                        <p>Den Source-Code gibt's auf meinem 
+                            <a href="https://github.com/Valletix/spardle.at" target="_blank">GitHub</a>!
+                        </p>
+
+                        <p>Großes Danke an 
+                            <a href="https://www.nytimes.com/games/wordle/index.html" target="_blank">Wordle</a>,
+                            <a href="https://costcodle.com/" target="_blank">Costcodle</a> und alle anderen Daily-Games
+                            für die Inspiration für dieses Projekt!
+                        </p>
+                        <p>
+                            Shout-Out an die <a href="https://www.spar.at/produktwelt/" target="_blank" rel="noopener noreferrer">
+                            Spar Produktwelt</a> für eine umfangreiche und transparente Datenbank!
+                        </p>
+                        <p>
+                            Danke an <b>dich</b> fürs Spielen!
+                        </p>
+                        <hr>
+                        <p>
+                            Auf dieser Website werden keinerlei Daten gesammelt. Alle Daten, die zur persönlichen Statistik
+                            genutzt werden, sind ausschließlich auf dem jeweiligen Gerät gespeichert.
+                        </p>
+                        
+                    </div>
+                </div>
+                
+
+            </div>
+            <div id="stats_modal" class="modal_backdrop">
+                <div class="modal_content">
+                    <span class="close_button" id="stats_close_button">&times;</span>
+                    <h2>Statistik</h2>
+                    <div class="stats_grid">
+                    <div>
+                        <div class="stats_number", id="games_played">0</div>
+                        <div>Gespielt</div>
+                    </div>
+                <div>
+                        <div class="stats_number", id="win_percent">0</div>
+                        <div>Win%</div>
+                    </div>
+                    <div>
+                        <div class="stats_number", id="max_streak">0</div>
+                        <div>Längste<br>Serie</div>
+                    </div>
+                    <div>
+                        <div class="stats_number", id="current_streak">0</div>
+                        <div>Aktuelle<br>Serie</div>
+                    </div>
+                    </div>
+                
+                    <h3>Nach Versuchen</h3>
+                    <div class="chart_container">
+                        <canvas id="stats_chart", style="height: 200px"></canvas>
                     </div>
                     
-                </div> 
+                    <script type="module" src="src/stats.js"></script>
+                </div>
+                
             </div>
+            <div id = "impressum_modal" class = "modal_backdrop">
+                    <div class="modal_content">
+                        <span class="close_button" id="impressum_close_button">&times;</span>
+                        <p> 
+                            Diese Website wird betrieben von:<br><br>
+                            
+                            Valentin Kaltenegger <br>
+                            Graz, Österreich <br>
+                            Kontakt: kaltenegger.valentin@gmail.com
+
+                        </p>
+                    </div>
+                </div>
+                <div id = product_card>
+                    <div id = "image_container">
+                        <img id="product_image">
+                    </div>
+                <section></section>
+                </div>
+    
+            
+                <script type="module" src="src/main.js"></script>
+                <br>
+
+                <div class = "guess_section", id="guesses_container"> 
+                    <div id = "input_container" class= guess_container>
+                        <div id = text_input_container>
+                            <input type="number" id="input_guess" placeholder="Gib einen Tipp ab...">
+                        </div>
+                        <div id= "submit_container", class="">
+                            <input type="submit" id="submit_button" value="Raten">
+                        </div>
+                        
+                    </div> 
+                </div>
+                <div id="snackbar"></div>
+
+            </div>
+            <footer class = "page_footer">
+                <div id = spar_link>
+                    Daten von der
+                    <a href="https://www.spar.at/produktwelt/" target="_blank" rel="noopener noreferrer">
+                        Spar Produktwelt
+                    </a>
+                </div>
+                <div id = "Impressum">
+                    <button id="impressum_button" class = "menu_button"><u><b>Impressum</b></u></button>
+                </div>
+            </footer>
         </div>
         
-
-
-        <div id="snackbar"></div>
+        
         
     </body>
