@@ -80,7 +80,7 @@ Every day, there is a new, random product from the Spar range. If a product is c
 
 Valentin Kaltenegger - kaltenegger.valentin@gmail.com
 
-Project Link: [https://github.com/github_username/spardle.at](https://github.com/github_username/spardle.at)
+Project Link: [https://github.com/Valletix/spardle.at](https://github.com/Valletix/spardle.at)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,19 +101,6 @@ This Project would not have been possible without:
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/spardle.at.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/spardle.at/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/spardle.at.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/spardle.at/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/spardle.at.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/spardle.at/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/spardle.at.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/spardle.at/issues
-[license-shield]: https://img.shields.io/github/license/github_username/spardle.at.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/spardle.at/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: assets/website_screenshot.png
 <!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
 [Python]: https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff
