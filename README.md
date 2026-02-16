@@ -78,7 +78,7 @@ Every day, there is a new, random product from the Spar range. If a product is c
 <!-- CONTACT -->
 ## Contact
 
-Valentin Kaltenegger - kalteneger.valentin@gmail.com
+Valentin Kaltenegger - kaltenegger.valentin@gmail.com
 
 Project Link: [https://github.com/github_username/spardle.at](https://github.com/github_username/spardle.at)
 
