@@ -2,4 +2,6 @@ Datacleaning
 
 Share-Funktion
 
+Streak-Unterbrechung wenn Tag ausgelassen
+
 mobile-friendly optimizing

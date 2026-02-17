@@ -3,6 +3,7 @@ import {calculate_stats, draw_graph} from "./stats.js";
 import "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"
 
 var current_date = new Date().toISOString().slice(0,10);
+var creation_date = "2026-02-15";
 
 async function get_products() {
     const request = new Request(`../jsons/products_cleaned.json`);
@@ -26,8 +27,7 @@ function restore_guesses(product) {
     const guesses  = guess_data[current_date]["guess_values"]
     guesses.forEach(guess => {
         make_guess(product, true, guess["value"]);
-    })
-        
+    })    
 }
 
 function show_modal(modal){
@@ -44,7 +44,6 @@ function close_modal(modal) {
     current_modal.style.display = "none";
 }
 function show_product_info(product) {
-    
     const section = document.querySelector("section");
     const product_img = document.getElementById("product_image");
     const product_brand = document.createElement("div");
@@ -68,6 +67,7 @@ function add_event_listeners(product) {
     const stats_close_button = document.getElementById("stats_close_button");
     const impressum_button = document.getElementById("impressum_button");
     const impressum_close_button = document.getElementById("impressum_close_button");
+    const share_button = document.getElementById("share_button");
 
     tutorial_button.addEventListener("click", () => {
         show_modal("tutorial_modal");
@@ -102,8 +102,9 @@ function add_event_listeners(product) {
         make_guess(product);
         input_field.value = "";
     });
-    
-    
+    share_button.addEventListener("click", () => {
+        share_score();
+    });
 }
 
 function make_guess(product, restored = false, guess_price = null) {
@@ -178,6 +179,7 @@ function incorrect_guess(
     if (guesses_container.children.length >= 7) {
         disable_inputs();
         show_solution(product_price);
+        show_share_button();
     }
 }
 
@@ -207,6 +209,7 @@ function correct_guess(
     }
     disable_inputs();
     guesses_container.appendChild(guess_container);
+    show_share_button();
     setTimeout(show_modal,1000, "stats_modal");
 }
 
@@ -268,6 +271,66 @@ function save_data_by_date(guess_price) {
         guess_data[current_date]["guess_values"] = todays_guess_list
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
+}
+
+function show_share_button() {
+    const share_button = document.getElementById("share_button_container");
+    share_button.style.visibility = "visible";
+}
+
+function calculate_date_difference(date1, date2) {
+    date1 = new Date(date1);
+    date2 = new Date(date2);
+    const difference_time = Math.abs(date2 - date1);
+    const difference_days = Math.floor(difference_time / (1000 * 60 * 60 * 24));
+    return difference_days;
+}
+
+function create_share_string() {
+    const guess_section = document.getElementById("guesses_container");
+    const guesses = guess_section.querySelectorAll("div.guess");
+    const directions = guess_section.querySelectorAll("div.direction");
+    const game_number = calculate_date_difference(creation_date, current_date);
+    if (guesses.length == 7) {
+        var share_string = `Spardle #${game_number}: X/6\n\n`;
+    }
+    else {
+        var share_string = `Spardle #${game_number}: ${guesses.length}/6\n\n`;
+    }
+    
+    directions.forEach(guess => {
+        const direction_emoji = guess.textContent;
+        var closeness_emoji = "";
+        if (guess.classList.contains("far")) {
+            closeness_emoji = "🟥";
+        }
+        else if (guess.classList.contains("close")) {
+            closeness_emoji = "🟧";
+        }
+        else if (guess.classList.contains("almost")) {
+            closeness_emoji = "🟩";
+        }
+        share_string = share_string.concat(`${direction_emoji}${closeness_emoji}\n`);
+    });
+    share_string = share_string.concat("\nhttps://spardle.at")
+    console.log(share_string);
+    return share_string;
+
+}   
+
+function share_score() {
+    const share_string = create_share_string();
+
+
+    if (navigator.canShare) {
+            navigator.share({
+                text: share_string
+            });
+        }
+        else {
+            navigator.clipboard.writeText(share_string);
+            alert("Text in die Zwischenablage kopuiert!");
+        }
 }
 
 async function main() {
