@@ -2,8 +2,8 @@ import confetti from "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/+esm";
 import {calculate_stats, draw_graph} from "./stats.js";
 import "//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"
 
-var current_date = new Date().toISOString().slice(0,10);
-var creation_date = "2026-02-15";
+let current_date = new Date().toISOString().slice(0,10);
+let creation_date = "2026-02-15";
 
 async function get_products() {
     const request = new Request(`../jsons/products_cleaned.json`);
@@ -20,7 +20,7 @@ function choose_product(product_json) {
 }
 
 function restore_guesses(product) {
-    var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+    let guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
     if (guess_data == null || guess_data[current_date] == null) {
         return;
     }
@@ -50,7 +50,6 @@ function show_product_info(product) {
     const product_name = document.createElement("div");
     product_brand.classList.add("product_info");
     product_name.classList.add("product_info");
-    // product_img.src = `../img/${product.product_img_folder}/${product.product_img_name}`;
     product_img.src = product.product_img_link;
     product_brand.textContent =  product.product_brand;
     product_name.textContent =  product.product_name + " – " + product.product_weight;
@@ -203,7 +202,7 @@ function correct_guess(
     });
     if (restored == false) {
         save_data_by_date(guess_price);
-        var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+        let guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
         guess_data[current_date]["solved"] = true;
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
@@ -233,14 +232,14 @@ function disable_inputs() {
 }
 
 function wrong_input(message) {
-    var snackbar = document.getElementById("snackbar");
+    let snackbar = document.getElementById("snackbar");
     snackbar.className = "show";
     snackbar.textContent = message;
     setTimeout(function(){ snackbar.className = snackbar.className.replace("show", ""); }, 3000);
 }
 
 function save_data_by_game(guess_price, game_count) {
-    var guess_data = JSON.parse(localStorage.getItem("guesses_by_game"));
+    let guess_data = JSON.parse(localStorage.getItem("guesses_by_game"));
     if (guess_data == null) {
         localStorage.setItem("guesses_by_game", JSON.stringify({[game_count]: {"guess_values" : [{"value": guess_price}], "solved": false}}));
     }
@@ -249,7 +248,7 @@ function save_data_by_game(guess_price, game_count) {
         localStorage.setItem("guesses_by_game", JSON.stringify(guess_data));
     }
     else {
-        var todays_guess_list = guess_data[game_count]["guess_values"];
+        let todays_guess_list = guess_data[game_count]["guess_values"];
         todays_guess_list.push({"value": guess_price})
         guess_data[game_count]["guess_values"] = todays_guess_list
         localStorage.setItem("guesses_by_game", JSON.stringify(guess_data));
@@ -257,7 +256,7 @@ function save_data_by_game(guess_price, game_count) {
 }
 
 function save_data_by_date(guess_price) {
-    var guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+    let guess_data = JSON.parse(localStorage.getItem("guesses_by_date"));
     if (guess_data == null) {
         localStorage.setItem("guesses_by_date", JSON.stringify({[current_date]: {"guess_values" : [{"value": guess_price}], "solved": false}}));
     }
@@ -266,7 +265,7 @@ function save_data_by_date(guess_price) {
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
     }
     else {
-        var todays_guess_list = guess_data[current_date]["guess_values"];
+        let todays_guess_list = guess_data[current_date]["guess_values"];
         todays_guess_list.push({"value": guess_price})
         guess_data[current_date]["guess_values"] = todays_guess_list
         localStorage.setItem("guesses_by_date", JSON.stringify(guess_data));
@@ -292,15 +291,15 @@ function create_share_string() {
     const directions = guess_section.querySelectorAll("div.direction");
     const game_number = calculate_date_difference(creation_date, current_date);
     if (guesses.length == 7) {
-        var share_string = `Spardle #${game_number}: X/6\n\n`;
+        let share_string = `Spardle #${game_number}: X/6\n\n`;
     }
     else {
-        var share_string = `Spardle #${game_number}: ${guesses.length}/6\n\n`;
+        let share_string = `Spardle #${game_number}: ${guesses.length}/6\n\n`;
     }
     
     directions.forEach(guess => {
         const direction_emoji = guess.textContent;
-        var closeness_emoji = "";
+        let closeness_emoji = "";
         if (guess.classList.contains("far")) {
             closeness_emoji = "🟥";
         }

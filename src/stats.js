@@ -3,19 +3,19 @@ import "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels";
 import { calculate_date_difference } from "./main.js";
 
 export function calculate_stats() {
-  var game_data = JSON.parse(localStorage.getItem("guesses_by_date"));
+  let game_data = JSON.parse(localStorage.getItem("guesses_by_date"));
   if (game_data == null) {
     return guess_distribution
   }
 
-  var number_of_games = Object.keys(game_data).length; 
-  var solved_counter = 0;
-  var current_streak = 0;
-  var max_streak = 0;
-  var guess_distribution = [0,0,0,0,0,0,0]
-  var previous_game = "1998-02-26";
+  let number_of_games = Object.keys(game_data).length; 
+  let solved_counter = 0;
+  let current_streak = 0;
+  let max_streak = 0;
+  let guess_distribution = [0,0,0,0,0,0,0]
+  let previous_game = "1998-02-26";
   for (let game in game_data) {
-      var current_game = game;
+      let current_game = game;
       if(calculate_date_difference(current_game, previous_game) > 1) {
         current_streak = 0;
       }
@@ -23,7 +23,7 @@ export function calculate_stats() {
         solved_counter +=1;
         current_streak +=1;
         max_streak = Math.max(current_streak, max_streak);
-        var number_of_guesses = Object.keys(game_data[game]["guess_values"]).length;
+        let number_of_guesses = Object.keys(game_data[game]["guess_values"]).length;
         guess_distribution[number_of_guesses-1] +=1;
       }
       else {
@@ -32,7 +32,7 @@ export function calculate_stats() {
       };
       previous_game = game;
   }
-  var win_percent = (solved_counter / number_of_games * 100).toFixed(2);
+  let win_percent = (solved_counter / number_of_games * 100).toFixed(2);
 
   document.getElementById("games_played").textContent = number_of_games;
   document.getElementById("win_percent").textContent = win_percent;
@@ -47,7 +47,7 @@ export function draw_graph() {
   const x_values = ["1: ", "2: ", "3: ", "4: ", "5: ", "6: ", "Failed: "];
   const y_values = calculate_stats();
   const bar_colors = ["#06b81e","#5fe406","#a1e406","#d5e406","#e49e06","#e45f06","#E40613"];
-  var existing_chart = Chart.getChart("stats_chart")
+  let existing_chart = Chart.getChart("stats_chart")
   if (existing_chart) {
     existing_chart.destroy();
   }
