@@ -14,7 +14,8 @@ async function get_products() {
 
 function choose_product(product_json) {
     Math.seedrandom(current_date);
-    const rand_num = Math.floor(Math.random() * 14400);
+    const rand_num = Math.floor(Math.random() * 19103);
+    console.log(rand_num)
     const product = product_json[rand_num];
     return product;
 }
