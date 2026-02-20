@@ -15,7 +15,6 @@ async function get_products() {
 function choose_product(product_json) {
     Math.seedrandom(current_date);
     const rand_num = Math.floor(Math.random() * 19103);
-    console.log(rand_num)
     const product = product_json[rand_num];
     return product;
 }
@@ -291,11 +290,12 @@ function create_share_string() {
     const guesses = guess_section.querySelectorAll("div.guess");
     const directions = guess_section.querySelectorAll("div.direction");
     const game_number = calculate_date_difference(creation_date, current_date);
+    let share_string;
     if (guesses.length == 7) {
-        let share_string = `Spardle #${game_number}: X/6\n\n`;
+        share_string = `Spardle #${game_number}: X/6\n\n`;
     }
     else {
-        let share_string = `Spardle #${game_number}: ${guesses.length}/6\n\n`;
+        share_string = `Spardle #${game_number}: ${guesses.length}/6\n\n`;
     }
     
     directions.forEach(guess => {
