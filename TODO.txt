@@ -1,7 +1,5 @@
-Datacleaning
-
-Share-Funktion
-
 Streak-Unterbrechung wenn Tag ausgelassen
+
+redo double execution of calculate_stats()
 
 mobile-friendly optimizing

@@ -278,7 +278,7 @@ function show_share_button() {
     share_button.style.visibility = "visible";
 }
 
-function calculate_date_difference(date1, date2) {
+export function calculate_date_difference(date1, date2) {
     date1 = new Date(date1);
     date2 = new Date(date2);
     const difference_time = Math.abs(date2 - date1);
@@ -313,7 +313,6 @@ function create_share_string() {
         share_string = share_string.concat(`${direction_emoji}${closeness_emoji}\n`);
     });
     share_string = share_string.concat("\nhttps://spardle.at")
-    console.log(share_string);
     return share_string;
 
 }   

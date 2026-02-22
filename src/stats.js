@@ -1,5 +1,6 @@
 import "https://cdn.jsdelivr.net/npm/chart.js@4.5.0";
 import "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels";
+import { calculate_date_difference } from "./main.js";
 
 export function calculate_stats() {
   var game_data = JSON.parse(localStorage.getItem("guesses_by_date"));
@@ -12,7 +13,12 @@ export function calculate_stats() {
   var current_streak = 0;
   var max_streak = 0;
   var guess_distribution = [0,0,0,0,0,0,0]
+  var previous_game = "1998-02-26";
   for (let game in game_data) {
+      var current_game = game;
+      if(calculate_date_difference(current_game, previous_game) > 1) {
+        current_streak = 0;
+      }
       if (game_data[game]["solved"] == true) {
         solved_counter +=1;
         current_streak +=1;
@@ -23,7 +29,8 @@ export function calculate_stats() {
       else {
         current_streak = 0;
         guess_distribution[6] +=1;
-      }
+      };
+      previous_game = game;
   }
   var win_percent = (solved_counter / number_of_games * 100).toFixed(2);
 
