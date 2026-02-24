@@ -19,13 +19,15 @@ def normalize_strings(text):
             
 
 async def find_products():
-    # "https://www.spar.at/produktwelt/lebensmittel?page=1"
     websites = [
+        "https://www.spar.at/produktwelt/lebensmittel?page=1",
         "https://www.spar.at/produktwelt/getraenke?page=1"]
     
-    async with Chrome() as browser:
-        page_counter = 1
-        for website in websites:
+    for website in websites:
+    
+        async with Chrome() as browser:
+            page_counter = 1
+            
             tab = await browser.start()
             await tab.go_to(website, timeout=5)
             max_pages = await tab.find(class_name="pagination__text")
@@ -34,7 +36,6 @@ async def find_products():
             max_pages = int(max_pages.removeprefix("1 von "))
 
             while page_counter <= max_pages:
-                # os.makedirs(f"img/{counter}", exist_ok=True)
                 time.sleep(2)
                 await tab.keyboard.press(Key.ESCAPE)
                 time.sleep(2)
@@ -44,14 +45,18 @@ async def find_products():
                     brand = await product.find(class_name="product-tile__name1", raise_exc=False)
                     name = await product.find(class_name="product-tile__name2", raise_exc=False)
                     weight = await product.find(class_name="product-tile__name3", raise_exc=False)
+
+                    # Sometimes product weight does not align with price for the actual weight and a different actual weight
+                    # is displayed below the price. If that's the case, we have to use that different weight.
+                    weight_display_unit = await product.find(class_name="product-price__price-display-unit", raise_exc=False)
                     old_price = await product.find(class_name="product-price__price-old", raise_exc=False)
+                    img_tile = await product.find(class_name="product-tile__image-price")
+                    img = await img_tile.find(class_name="adaptive-image__img")
+                    
                     if old_price:
                         price = old_price
                     else:
                         price = await product.find(class_name="product-price__price")
-                    img_tile = await product.find(class_name="product-tile__image-price")
-                    img = await img_tile.find(class_name="adaptive-image__img")
-
                     if brand:
                         brand_text = await brand.text
                     else:
@@ -60,7 +65,9 @@ async def find_products():
                         name_text = await name.text
                     else: 
                         name_text = None
-                    if weight:
+                    if weight_display_unit:
+                        weight_text = await weight_display_unit.text
+                    elif weight:
                         weight_text = await weight.text
                     else:
                         weight_text = None
@@ -71,19 +78,10 @@ async def find_products():
                     match = re.search(pattern, image_text)
                     if match:
                         image_link = match.group(1)
-                    
-                    # img_tab = await browser.new_tab(image_link)
-                    # img_clean = await img_tab.find(tag_name="img")
-
-                    # image_file_name = f"{normalize_strings(f"{brand_text}_{name_text}_{weight_text}")}.png"
-                    
-                    # await img_clean.take_screenshot(f"./img/{counter}/{image_file_name}", quality=85)
-                    # await img_tab.close()
-
 
                     product_df.loc[len(product_df)] = [brand_text, name_text, weight_text, price_text, image_link]
-    
-                product_df.to_json(f"./jsons/products_drinks.json", orient="index", indent=4)
+
+                product_df.to_json(f"./jsons/products_combined.json", orient="index", indent=4)
                 page_counter +=1
                 next_page_button = await tab.find(aria_label="Zur nächsten Seite")
                 await next_page_button.click()
