@@ -46,8 +46,8 @@ async def find_products():
                     name = await product.find(class_name="product-tile__name2", raise_exc=False)
                     weight = await product.find(class_name="product-tile__name3", raise_exc=False)
 
-                    # Sometimes product weight does not align with price for the actual weight and a different actual weight
-                    # is displayed below the price. If that's the case, we have to use that different weight.
+                    # Sometimes the product weight does not align with the price for the actual weight and a different 
+                    # weight is displayed below the price. If that's the case, we have to use that different weight.
                     weight_display_unit = await product.find(class_name="product-price__price-display-unit", raise_exc=False)
                     old_price = await product.find(class_name="product-price__price-old", raise_exc=False)
                     img_tile = await product.find(class_name="product-tile__image-price")
